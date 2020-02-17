@@ -1,0 +1,26 @@
+.box {
+    border: 1px solid #000;
+    padding: 5px;
+  }
+.wrapper {
+    display:grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(50px, auto);
+  }
+.far_left {
+    grid-column: 3 / 9;
+    grid-row: 1;
+}
+.left {
+    grid-column: 4 / 9;
+    grid-row: 1;
+}
+.right {
+    grid-column: 6 / 9;
+    grid-row: 1;
+  }
+.far_right {
+    grid-column: 7 / 9;
+    grid-row: 1;
+}
