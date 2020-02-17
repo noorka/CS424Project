@@ -1,14 +1,22 @@
 body{
-    font-family: 'Quicksand', sans-serif;;
+    font-family: 'Quicksand', sans-serif;
+    background-color:#f0efe4;
 }
-h1{
-    color: green;
+h1 > a{
+    color:#1c9e05;
+    text-decoration: none;
+}
+footer{
+    background-color: #fffb82;
+}
+a{
+    text-decoration: none;
 }
 .game{
     align-self: center;
 }
 #nav{
-    background-color: yellow;
+    background-color:#fffb82;
 }
 .box {
     padding: 5px;
