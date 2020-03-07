@@ -2,15 +2,27 @@ body{
     font-family: 'Quicksand', sans-serif;
     background-color:#f0efe4;
 }
-h1 > a{
-    color:#1c9e05;
-    text-decoration: none;
-}
 footer{
     background-color: #fffb82;
 }
-a{
+a:link {
     text-decoration: none;
+    color: black;
+}
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color:#1c9e05;
+}
+a:active{
+    text-decoration: none;
+    color:#1c9e05;
+}
+p{
+    font-family: 'Sarabun', sans-serif;
 }
 .game{
     align-self: center;
