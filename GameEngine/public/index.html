@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lucky Duck Game</title>
+        <link href="duck1.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Sarabun&display=swap" rel="stylesheet">
+
+        <!-- external library -->
+        <script type="text/javascript" src="src/lib/gl-matrix.js"></script>
+
+        <!-- Engine code -->
+        <!-- Core of Engine --> 
+        <script type="text/javascript" src="src/Engine/Core/Engine_Core.js"></script>
+        <script type="text/javascript" src="src/Engine/Core/Engine_VertexBuffer.js"></script>
+        <script type="text/javascript" src="src/Engine/Core/Engine_GameLoop.js"></script>
+        <script type="text/javascript" src="src/Engine/Core/Engine_Input.js"></script>
+        <!-- Resource support -->
+        <script type="text/javascript" src="src/Engine/Core/Resources/Engine_ResourceMap.js"></script>
+        <script type="text/javascript" src="src/Engine/Core/Resources/Engine_TextFileLoader.js"></script>
+        <script type="text/javascript" src="src/Engine/Core/Resources/Engine_DefaultResources.js"></script>
+        <script type="text/javascript" src="src/Engine/Core/Resources/Engine_AudioClips.js"></script>
+        <script type="text/javascript" src="src/Engine/Core/Resources/Engine_Textures.js"></script>
+        <script type="text/javascript" src="src/Engine/Core/Resources/Engine_Fonts.js"></script>
+        <script type="text/javascript" src="src/Engine/Transform.js"></script>
+        <script type="text/javascript" src="src/Engine/Camera.js"></script>
+        <script type="text/javascript" src="src/Engine/Scene.js"></script>
+        <!-- Renderables -->
+        <script type="text/javascript" src="src/Engine/Renderables/Renderable.js"></script>
+        <script type="text/javascript" src="src/Engine/Renderables/TextureRenderable.js"></script>
+        <script type="text/javascript" src="src/Engine/Renderables/SpriteRenderable.js"></script>
+        <script type="text/javascript" src="src/Engine/Renderables/SpriteAnimateRenderable.js"></script>
+        <script type="text/javascript" src="src/Engine/Renderables/FontRenderable.js"></script>
+        <!-- Shaders -->
+        <script type="text/javascript" src="src/Engine/Shaders/SimpleShader.js"></script>
+        <script type="text/javascript" src="src/Engine/Shaders/TextureShader.js"></script>
+        <script type="text/javascript" src="src/Engine/Shaders/SpriteShader.js"></script>
+
+        <!-- Client game code -->
+        <script type="text/javascript" src="src/MyGame/MyGame.js"></script>
+        <script type="text/javascript" src="src/MyGame/GameOver.js"></script> 
+    </head>
+
+
+    <body onload="
+        var myGame = new MyGame();
+        gEngine.Core.initializeEngineCore('GLCanvas', myGame);
+     ">
+        <section id="nav" class="wrapper">
+            
+            <div class="box far_left"><a href="duck_about.html">About</a></div>
+            <div class="box left"><a href="duck_howto.html">How To</a></div>
+            <div class= "box center"><a href="luckyduck.html"><img src="ducklogo2.png" width="100%" height = "100%"></a></div>
+            <div class="box right"><a href="duck_dev.html">Development</a></div>
+            <div class="box far_right"><a href="duck_contact.html">Contact</a></div>
+            
+        </section>
+
+        <div class="game center">
+            <canvas id="GLCanvas" width="640" height="480" style="border:1px solid #000000;"></canvas>
+        </div>
+
+        <footer>
+            <div class="box left">Version 1.0</div>
+            <div class="box right">Copyright 2020</div>
+        </footer>
+    </body>
+</html>
