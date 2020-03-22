@@ -58,7 +58,7 @@ MyGame.prototype.initialize = function () {
     this.mTarget = new SpriteRenderable(this.kDuckSprite);
     this.mTarget.setColor([1, 1, 1, 0]);
     this.mTarget.getXform().setPosition(20, 60);
-    this.mTarget.getXform().setSize(2, 2);
+    this.mTarget.getXform().setSize(1.5, 1.5);
     this.mTarget.setElementPixelPositions(0, 256, 0, 256);
 };
 
