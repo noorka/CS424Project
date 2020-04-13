@@ -7,8 +7,8 @@
 
 function MyGame() {
     // textures: 
-    this.kDuckSprite = "assets/Duck_Sprite.png"
-
+    this.kDuckSprite = "assets/Ducks_Bobbing.png";
+    
     // The camera to view the scene
     this.mCamera = null;
 
@@ -62,7 +62,7 @@ MyGame.prototype.initialize = function () {
         chick.getXform().setPosition(x, y);
         chick.setSpriteSequence(512, 0,     // first element pixel position: top-left 512 is top of image, 0 is left of image
                                     256, 256,       // widthxheight in pixels
-                                     4,              // number of elements in this sequence
+                                     6,              // number of elements in this sequence
                                      0);             // horizontal padding in between
         chick.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
         chick.setAnimationSpeed(25);
