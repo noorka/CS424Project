@@ -98,8 +98,8 @@ MyGame.prototype.initialize = function () {
     this.mTarget.setColor([1, 1, 1, 0]);
     this.mTarget.getXform().setPosition(25, 65);
     // 20 60
-    this.mTarget.getXform().setSize(1.5, 1.5);
-    this.mTarget.setElementPixelPositions(0, 256, 0, 256);
+    this.mTarget.getXform().setSize(3, 3);
+    this.mTarget.setElementPixelPositions(1536, 1792, 0, 256);
 };
 
 // This is the draw function, make sure to setup proper drawing environment, and more
