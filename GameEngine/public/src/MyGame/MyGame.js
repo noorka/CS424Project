@@ -3,21 +3,19 @@
  * This is the logic of our game. 
  */
 
-
 "use strict";
 
 function MyGame() {
     // textures: 
-    this.kMinionSprite = "assets/minion_sprite.png";  // Portal and Collector are embedded here
     this.kDuckSprite = "assets/Duck_Sprite.png"
 
     // The camera to view the scene
     this.mCamera = null;
 
-    // the hero and the support objects
     this.mTarget = null;
     this.mDuck = null;
 }
+
 gEngine.Core.inheritPrototype(MyGame, Scene);
 
 MyGame.prototype.loadScene = function () {
@@ -74,7 +72,6 @@ MyGame.prototype.draw = function () {
     // Step  C: Draw everything
     this.mDuck.draw(this.mCamera.getVPMatrix());
     this.mTarget.draw(this.mCamera.getVPMatrix());
-    // this.mDuck.draw(this.mCamera.getVPMatrix());
 };
 
 
