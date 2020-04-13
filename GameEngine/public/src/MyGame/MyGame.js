@@ -17,10 +17,10 @@ function MyGame() {
 
     this.mFlock = null;
     //this.mDuck = null;
-    this.xRange = 20;
-    this.xStart = 10;
-    this.yRange = 10;
-    this.yStart = 55;
+    this.xRange = 10;
+    this.xStart = 13;
+    this.yRange = 5;
+    this.yStart = 57;
 }
 
 gEngine.Core.inheritPrototype(MyGame, Scene);
