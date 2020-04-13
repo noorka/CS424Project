@@ -8,6 +8,7 @@
 function MyGame() {
     // textures: 
     this.kDuckSprite = "assets/Ducks_Bobbing.png";
+    //this.kBreadSprite = "assets/Duck_Sprite.png"
     
     // The camera to view the scene
     this.mCamera = null;
@@ -60,12 +61,12 @@ MyGame.prototype.initialize = function () {
         chick.setColor([1, 1, 1, 0]);
         chick.getXform().setSize(2, 2);
         chick.getXform().setPosition(x, y);
-        chick.setSpriteSequence(512, 0,     // first element pixel position: top-left 512 is top of image, 0 is left of image
+        chick.setSpriteSequence(256, 0,     // first element pixel position: top-left 512 is top of image, 0 is left of image
                                     256, 256,       // widthxheight in pixels
                                      6,              // number of elements in this sequence
                                      0);             // horizontal padding in between
         chick.setAnimationType(SpriteAnimateRenderable.eAnimationType.eAnimateRight);
-        chick.setAnimationSpeed(25);
+        chick.setAnimationSpeed(15);
         return chick;
     }
     MyGame.prototype.makeFlock = function (flockSize){
