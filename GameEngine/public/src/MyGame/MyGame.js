@@ -45,7 +45,7 @@ MyGame.prototype.initialize = function () {
     //this.mDuck = new Duck(this.kDuckSprite, 35, 45);
     this.mDuckHit = new SinkingDuck(this.kSinkingDucks, 35, 45);
     this.mDuckHit.setVisibility(false);
-    this.mFlock = new Flock(this.kDuckSprite, 5);
+    this.mFlock = new Flock(this.kDuckSprite, 15);
 
 
     this.mMsg = new FontRenderable("Score: 0");

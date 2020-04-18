@@ -2,19 +2,21 @@
 
 class Flock {
     constructor(spriteTexture, flockSize) {
-        this.xRange = 50;
-        this.xStart = 10;
-        this.yRange = 50;
-        this.yStart = 5;
+        this.xRange = 87;
+        this.xStart = 5;
+        this.yRange = 60;
+        this.yStart = 10;
         //GameObject.call(this, this.mFlock);
         this.mFlock = new Array();
         var x, y;
         var i, p;
         var h = [];
         var duckReady = false;
+        var tryCount = 0;
         for (i = 0; i < flockSize; i++) {
             duckReady = false;
-            while(!duckReady){
+            while((!duckReady)&&(tryCount < 20)){
+                tryCount++;
                 x = Math.floor(Math.random() * this.xRange + this.xStart);
                 y = Math.floor(Math.random() * this.yRange + this.yStart);
                 var newDucky = new Duck(spriteTexture, x, y);
@@ -22,14 +24,19 @@ class Flock {
                 for(p = 0; p < this.mFlock.length; p++){
                     if(this.mFlock[p].pixelTouches(newDucky, h)){
                         duckReady = false;
-                        newDucky = null;
                     }
                 }
 
                 if(duckReady){
                     this.mFlock.push(newDucky);
+                    tryCount = 0;
                 }
-          }
+                newDucky = null;
+            }
+            if(tryCount > 0){
+                console.log("Not enough space for " + flockSize + " ducks. There are " + i + " ducks on the page.");
+                break;
+            }
        } //GameObject.call(this, this.mFlock);
     }
     update() {
