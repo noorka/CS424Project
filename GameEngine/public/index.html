@@ -8,7 +8,7 @@
 
         <!-- external library -->
         <script type="text/javascript" src="src/lib/gl-matrix.js"></script>
-
+        
         <!-- Engine code -->
         <!-- Core of Engine --> 
         <script type="text/javascript" src="src/Engine/Core/Engine_Core.js"></script>
@@ -25,12 +25,19 @@
         <script type="text/javascript" src="src/Engine/Transform.js"></script>
         <script type="text/javascript" src="src/Engine/Camera.js"></script>
         <script type="text/javascript" src="src/Engine/Scene.js"></script>
+        <script type="text/javascript" src="src/Engine/BoundingBox.js"></script>
         <!-- Renderables -->
         <script type="text/javascript" src="src/Engine/Renderables/Renderable.js"></script>
         <script type="text/javascript" src="src/Engine/Renderables/TextureRenderable.js"></script>
+        <script type="text/javascript" src="src/Engine/Renderables/TextureRenderable_PixelCollision.js"></script>
         <script type="text/javascript" src="src/Engine/Renderables/SpriteRenderable.js"></script>
+        <script type="text/javascript" src="src/Engine/Renderables/SpriteRenderable_PixelCollision.js"></script>
         <script type="text/javascript" src="src/Engine/Renderables/SpriteAnimateRenderable.js"></script>
         <script type="text/javascript" src="src/Engine/Renderables/FontRenderable.js"></script>
+        <!-- GameObject -->
+        <script type="text/javascript" src="src/Engine/GameObjects/GameObject.js"></script>
+        <script type="text/javascript" src="src/Engine/GameObjects/GameObject_PixelCollision.js"></script>
+        <script type="text/javascript" src="src/Engine/GameObjects/GameObjectSet.js"></script>
         <!-- Shaders -->
         <script type="text/javascript" src="src/Engine/Shaders/SimpleShader.js"></script>
         <script type="text/javascript" src="src/Engine/Shaders/TextureShader.js"></script>
@@ -38,7 +45,17 @@
 
         <!-- Client game code -->
         <script type="text/javascript" src="src/MyGame/MyGame.js"></script>
-        <script type="text/javascript" src="src/MyGame/GameOver.js"></script> 
+
+        <!-- Objects -->
+        <script type="text/javascript" src="src/MyGame/Objects/DyePack.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Hero.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Brain.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Minion.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/TextureObject.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Bread.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Duck.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/Flock.js"></script>
+        <script type="text/javascript" src="src/MyGame/Objects/SinkingDuck.js"></script>
     </head>
 
 

@@ -51,7 +51,7 @@ gEngine.DefaultResources = (function () {
         // load default font
         gEngine.Fonts.loadFont(kDefaultFont);
 
-        gEngine.ResourceMap.setLoadCompleteCallback(function() {_createShaders(callBackFunction);});
+        gEngine.ResourceMap.setLoadCompleteCallback(function s() {_createShaders(callBackFunction); });
     };
 
     // unload all resources

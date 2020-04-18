@@ -21,9 +21,9 @@ function Renderable() {
 //**-----------------------------------------
 // Public methods
 //**-----------------------------------------
-Renderable.prototype.draw = function (vpMatrix) {
+Renderable.prototype.draw = function (aCamera) {
     var gl = gEngine.Core.getGL();
-    this.mShader.activateShader(this.mColor, vpMatrix);  // always activate the shader first!
+    this.mShader.activateShader(this.mColor, aCamera);  // always activate the shader first!
     this.mShader.loadObjectTransform(this.mXform.getXform());
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 };

@@ -17,7 +17,7 @@ function Transform() {
 
 // <editor-fold desc="Public Methods">
 
-//<editor-fold desc="Setter/Getter methods">
+//<editor-fold desc="Setter/getter methods">
 // // <editor-fold desc="Position setters and getters ">
 Transform.prototype.setPosition = function (xPos, yPos) { this.setXPos(xPos); this.setYPos(yPos); };
 Transform.prototype.getPosition = function () { return this.mPosition; };

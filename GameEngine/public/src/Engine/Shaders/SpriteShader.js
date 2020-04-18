@@ -33,6 +33,7 @@ function SpriteShader(vertexShaderPath, fragmentShaderPath) {
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(initTexCoord), gl.DYNAMIC_DRAW);
             // DYNAMIC_DRAW: says buffer content may change!
 }
+
 // get all the prototype functions from SimpleShader
 gEngine.Core.inheritPrototype(SpriteShader, TextureShader);
 
@@ -41,9 +42,9 @@ gEngine.Core.inheritPrototype(SpriteShader, TextureShader);
 // <editor-fold desc="Public Methods">
 
 // Overriding the Activation of the shader for rendering
-SpriteShader.prototype.activateShader = function (pixelColor, vpMatrix) {
+SpriteShader.prototype.activateShader = function (pixelColor, aCamera) {
     // first call the super class's activate
-    SimpleShader.prototype.activateShader.call(this, pixelColor, vpMatrix);
+    SimpleShader.prototype.activateShader.call(this, pixelColor, aCamera);
 
     // now binds the proper texture coordinate buffer
     var gl = gEngine.Core.getGL();

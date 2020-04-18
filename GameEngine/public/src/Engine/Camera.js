@@ -4,7 +4,7 @@
  */
 
 /*jslint node: true, vars: true */
-/*global gEngine: false, SimpleShader: false, Renderable: false, mat4: false, vec3: false */
+/*global gEngine, SimpleShader, Renderable, mat4, vec3, BoundingBox */
 /* find out more about jslint: http://www.jslint.com/help.html */
 "use strict";
 
@@ -45,6 +45,9 @@ Camera.prototype.setWCCenter = function (xPos, yPos) {
 };
 Camera.prototype.getWCCenter = function () { return this.mWCCenter; };
 Camera.prototype.setWCWidth = function (width) { this.mWCWidth = width; };
+Camera.prototype.getWCWidth = function () { return this.mWCWidth; };
+Camera.prototype.getWCHeight = function () { return this.mWCWidth * this.mViewport[3] / this.mViewport[2]; };
+                                                                        // viewportH/viewportW
 
 Camera.prototype.setViewport = function (viewportArray) { this.mViewport = viewportArray; };
 Camera.prototype.getViewport = function () { return this.mViewport; };
@@ -92,7 +95,7 @@ Camera.prototype.setupViewProjection = function () {
 
     // Step B2: define the projection matrix
     var halfWCWidth = 0.5 * this.mWCWidth;
-    var halfWCHeight = halfWCWidth * this.mViewport[3] / this.mViewport[2]; // viewportH/viewportW
+    var halfWCHeight = 0.5 * this.getWCHeight(); // 
     mat4.ortho(this.mProjMatrix,
         -halfWCWidth,   // distance to left of WC
          halfWCWidth,   // distance to right of WC
@@ -100,11 +103,18 @@ Camera.prototype.setupViewProjection = function () {
          halfWCHeight,  // distance to top of WC
          this.mNearPlane,   // z-distance to near plane 
          this.mFarPlane  // z-distance to far plane 
-    );
+        );
 
     // Step B3: concatenate view and project matrices
     mat4.multiply(this.mVPMatrix, this.mProjMatrix, this.mViewMatrix);
     //</editor-fold>
 };
 
+Camera.prototype.collideWCBound = function (aXform, zone) {
+    var bbox = new BoundingBox(aXform.getPosition(), aXform.getWidth(), aXform.getHeight());
+    var w = zone * this.getWCWidth();
+    var h = zone * this.getWCHeight();
+    var cameraBound = new BoundingBox(this.getWCCenter(), w, h);
+    return cameraBound.boundCollideStatus(bbox);
+};
 //</editor-fold>

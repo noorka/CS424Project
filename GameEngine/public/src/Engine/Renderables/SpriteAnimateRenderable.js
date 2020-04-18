@@ -2,9 +2,6 @@
  * File: SpriteAnimateRenderable.js
  */
 
-/*jslint node: true, vars: true */
-/*global gEngine: false, Renderable: false, TextureRenderable: false, SpriteRenderable: false */
-/* find out more about jslint: http://www.jslint.com/help.html */
 
 // Constructor and object definition
 "use strict";  // Operate in Strict mode such that variables must be declared before used!
@@ -128,6 +125,18 @@ SpriteAnimateRenderable.prototype.updateAnimation = function () {
         }
     }
 };
-//--- end of Public Methods
-//
-//</editor-fold>
+
+//Code from Eliora Horst
+//Performs the same function as the code above, but by removing the else it
+//makes the animation only run through one time, as opposed to over and over
+//again.
+SpriteAnimateRenderable.prototype.updateAnimationOnce = function () {
+    this.mCurrentTick++;
+    if (this.mCurrentTick >= this.mUpdateInterval) {
+        this.mCurrentTick = 0;
+        this.mCurrentElm += this.mCurrentAnimAdvance;
+        if ((this.mCurrentElm >= 0) && (this.mCurrentElm < this.mNumElems)) {
+            this._setSpriteElement();
+        } 
+    }
+};

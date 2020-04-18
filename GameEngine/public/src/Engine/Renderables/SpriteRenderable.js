@@ -17,6 +17,9 @@ function SpriteRenderable(myTexture) {
     this.mTexRight = 1.0;  // 
     this.mTexTop = 1.0;    //   1 is top and 0 is bottom of image
     this.mTexBottom = 0.0; // 
+
+    // 
+    this._setTexInfo();
 }
 gEngine.Core.inheritPrototype(SpriteRenderable, TextureRenderable);
 
@@ -45,19 +48,19 @@ SpriteRenderable.prototype.setElementUVCoordinate = function (left, right, botto
     this.mTexRight = right;
     this.mTexBottom = bottom;
     this.mTexTop = top;
+    this._setTexInfo();
 };
 
 // specify element region by pixel positions (between 0 to image resolutions)
 SpriteRenderable.prototype.setElementPixelPositions = function (left, right, bottom, top) {
-    var texInfo = gEngine.ResourceMap.retrieveAsset(this.mTexture);
-    // entire image width, height
-    var imageW = texInfo.mWidth;
-    var imageH = texInfo.mHeight;
+    var imageW = this.mTextureInfo.mWidth;
+    var imageH = this.mTextureInfo.mHeight;
 
     this.mTexLeft = left / imageW;
     this.mTexRight = right / imageW;
     this.mTexBottom = bottom / imageH;
     this.mTexTop = top / imageH;
+    this._setTexInfo();
 };
 
 SpriteRenderable.prototype.getElementUVCoordinateArray = function () {
@@ -69,12 +72,12 @@ SpriteRenderable.prototype.getElementUVCoordinateArray = function () {
     ];
 };
 
-SpriteRenderable.prototype.draw = function (vpMatrix) {
+SpriteRenderable.prototype.draw = function (aCamera) {
     // set the current texture coordinate
     // 
     // activate the texture
     this.mShader.setTextureCoordinate(this.getElementUVCoordinateArray());
-    TextureRenderable.prototype.draw.call(this, vpMatrix);
+    TextureRenderable.prototype.draw.call(this, aCamera);
 };
 //--- end of Public Methods
 //

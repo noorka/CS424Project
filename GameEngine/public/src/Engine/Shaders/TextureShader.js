@@ -23,6 +23,7 @@ function TextureShader(vertexShaderPath, fragmentShaderPath) {
     var gl = gEngine.Core.getGL();
     this.mShaderTextureCoordAttribute = gl.getAttribLocation(this.mCompiledShader, "aTextureCoordinate");
 }
+
 // get all the prototype functions from SimpleShader
 gEngine.Core.inheritPrototype(TextureShader, SimpleShader);
 
@@ -32,9 +33,9 @@ gEngine.Core.inheritPrototype(TextureShader, SimpleShader);
 // <editor-fold desc="Public Methods">
 
 // Overriding the Activation of the shader for rendering
-TextureShader.prototype.activateShader = function (pixelColor, vpMatrix) {
+TextureShader.prototype.activateShader = function (pixelColor, aCamera) {
     // first call the super class's activate
-    SimpleShader.prototype.activateShader.call(this, pixelColor, vpMatrix);
+    SimpleShader.prototype.activateShader.call(this, pixelColor, aCamera);
 
     // now our own functionality: enable texture coordinate array
     var gl = gEngine.Core.getGL();
