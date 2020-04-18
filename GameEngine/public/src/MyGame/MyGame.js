@@ -3,6 +3,7 @@
 function MyGame() {
     this.kDuckSprite = "assets/Ducks_Bobbing.png";
     this.kSinkingDucks = "assets/Sinking_Ducks.png";
+    this.kBackgroundImage = "assets/background.png";
 
     // The camera to view the scene
     this.mCamera = null;
@@ -14,7 +15,7 @@ function MyGame() {
     this.mDuck = null;
     this.mFlock = null;
     this.mDuckHit = null;
-
+    this.mBackground = null; 
     this.didScore = false;
 
 }
@@ -24,11 +25,13 @@ gEngine.Core.inheritPrototype(MyGame, Scene);
 MyGame.prototype.loadScene = function () {
     gEngine.Textures.loadTexture(this.kDuckSprite);
     gEngine.Textures.loadTexture(this.kSinkingDucks);
+    gEngine.Textures.loadTexture(this.kBackgroundImage);
 };
 
 MyGame.prototype.unloadScene = function () {
     gEngine.Textures.unloadTexture(this.kDuckSprite);
     gEngine.Textures.unloadTexture(this.kSinkingDucks);
+    gEngine.Textures.unloadTexture(this.kBackgroundImage);
 };
 
 MyGame.prototype.initialize = function () {
@@ -36,13 +39,19 @@ MyGame.prototype.initialize = function () {
     this.mCamera = new Camera(
         vec2.fromValues(50, 37.5), // position of the camera
         100,                       // width of camera
-        [0, 0, 640, 480]           // viewport (orgX, orgY, width, height)
+        [0, 0, 750, 1334]           // viewport (orgX, orgY, width, height)
     );
-    this.mCamera.setBackgroundColor([0.8, 0.8, 0.8, 1]);
+    //this.mCamera.setBackgroundColor([0.8, 0.8, 0.8, 1]);
             // sets the background to gray
 
+   
+    this.mBackground = new SpriteRenderable(this.kBackgroundImage);
+    this.mBackground.setColor([1, 1, 1, 0]);
+    this.mBackground.getXform().setPosition(0, 0);
+    this.mBackground.getXform().setSize(750, 1334);
+    this.mBackground.setElementPixelPositions(0, 750, 0, 1334);
+
     this.mBread = new Bread(this.kDuckSprite);
-    //this.mDuck = new Duck(this.kDuckSprite, 35, 45);
     this.mDuckHit = new SinkingDuck(this.kSinkingDucks, 35, 45);
     this.mDuckHit.setVisibility(false);
     this.mFlock = new Flock(this.kDuckSprite, 15);
@@ -73,6 +82,7 @@ MyGame.prototype.draw = function () {
     }*/
     this.mDuckHit.draw(this.mCamera);
     this.mBread.draw(this.mCamera);
+    this.mBackground.draw(this.mCamera);
     
 };
 
